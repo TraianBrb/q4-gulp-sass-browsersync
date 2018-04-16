@@ -1,0 +1,19 @@
+{
+  "name": "q4sassbrowsersynctemplate",
+  "version": "1.0.0",
+  "description": "Basic kit for developing on Q4 platform using Sass and BrowserSync",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "author": "Traian Barbu",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-string-replace": "^1.0.0",
+    "run-sequence": "^2.2.1"
+  }
+}
