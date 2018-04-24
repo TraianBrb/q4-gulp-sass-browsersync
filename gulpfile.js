@@ -1,10 +1,13 @@
-var gulp        = require('gulp');
-var browserSync = require('browser-sync');
-var sass        = require('gulp-sass');
-var del         = require('del');
-var runSequence = require('run-sequence');
-var replace     = require('gulp-string-replace');
-
+const gulp            = require('gulp');
+const browserSync     = require('browser-sync');
+const sass            = require('gulp-sass');
+const runSequence     = require('run-sequence');
+const del             = require('del');
+const replace         = require('gulp-string-replace');
+const autoprefixer    = require('autoprefixer');
+const postcss         = require('gulp-postcss');
+const easyMediaQuery  = require('postcss-easy-media-query');
+const responsiveType  = require('postcss-responsive-type');
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['build'], function() {
@@ -33,6 +36,15 @@ gulp.task('serve', ['build'], function() {
     gulp.watch("source/scss/*.scss", ['build']).on('change', browserSync.reload);
 });
 
+// Build task that runs once in the beggining
+gulp.task('build', function(cb) {
+    runSequence(
+        'clean',
+        'sass',
+        'replace',
+        cb);
+});
+
 // Replace task will look in global.css file in url() and will replace '../' with the provided link
 gulp.task('replace', function() {
     gulp.src(["./build/production/css/*.css"])
@@ -42,19 +54,21 @@ gulp.task('replace', function() {
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
+    var processors = [
+        autoprefixer({
+            browsers: ['last 2 versions']
+        }),
+        responsiveType,
+        easyMediaQuery
+    ];
+
     return gulp.src("source/scss/*.scss")
-        .pipe(sass())
+        .pipe(sass({
+            'sourceComments': true
+        }))
+        .pipe(postcss(processors))
         .pipe(gulp.dest("build/production/css"))
         .pipe(browserSync.stream());
-});
-
-// Build task that runs once in the beggining
-gulp.task('build', function(cb) {
-    runSequence(
-        'clean',
-        'sass',
-        'replace',
-        cb);
 });
 
 // Deletes the build folder

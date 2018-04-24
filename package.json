@@ -9,11 +9,15 @@
   "author": "Traian Barbu",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^8.3.0",
     "browser-sync": "^2.23.6",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
+    "gulp-postcss": "^7.0.1",
     "gulp-sass": "^4.0.1",
     "gulp-string-replace": "^1.0.0",
+    "postcss-easy-media-query": "^1.0.0",
+    "postcss-responsive-type": "^1.0.0",
     "run-sequence": "^2.2.1"
   }
 }
