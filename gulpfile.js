@@ -9,7 +9,7 @@ const postcss         = require('gulp-postcss');
 const easyMediaQuery  = require('postcss-easy-media-query');
 const responsiveType  = require('postcss-responsive-type');
 
-// Static Server + watching scss/html files
+// Static Server + watching scss files
 gulp.task('serve', ['build'], function() {
     browserSync({
         proxy: // Replace this comment with the preview URL e.g: 'https://q4implementation3.s3.q4web.com/preview/preview.aspx?SectionId=2237b9ec-83f2-4f43-a172-a84c056c40fa&LanguageId=1&ResetDate=1',
