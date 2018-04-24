@@ -37,6 +37,10 @@ For more information check gulpfile.js file.
 * [Browser-sync](https://www.npmjs.com/package/browser-sync) - Keep multiple browsers & devices in sync when building websites.
 * [Gulp-sass](https://www.npmjs.com/package/gulp-sass) - Used to compile SASS files into CSS
 * [Gulp-string-replace](https://www.npmjs.com/package/gulp-string-replace) - Used to replace url() paths
+* [Gulp-autoprefixer](https://www.npmjs.com/package/autoprefixer) - Used to fix web browser differences
+* [Gulp-postcss](https://github.com/postcss/gulp-postcss) - Gulp plugin to pipe CSS through several plugins, but parse CSS only once.
+* [Postcss-easey-media-query](https://www.npmjs.com/package/postcss-easy-media-query) - Postcss plugin for easily create media queries.
+* [Postcss-responsive-type](https://www.npmjs.com/package/postcss-responsive-type) - PostCSS plugin for automagical responsive typography.
 
 ## Authors
 
